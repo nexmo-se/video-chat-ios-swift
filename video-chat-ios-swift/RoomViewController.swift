@@ -11,7 +11,7 @@ import OpenTok
 
 
 // *** Fill in the backendURL for session creation, backend folder: ./backend ***
-let backendURL = "https://d27f-2001-e68-471d-ad82-45f9-9207-af10-ac88.ngrok.io"
+let backendURL = ""
 
 let publisherHeight = 180
 let publisherWidth = 120
