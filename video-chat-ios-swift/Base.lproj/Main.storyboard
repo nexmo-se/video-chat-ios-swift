@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4zK-YI-9jg">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Enter Room View Controller-->
+        <scene sceneID="iTn-7B-Q4u">
+            <objects>
+                <viewController id="4zK-YI-9jg" customClass="EnterRoomViewController" customModule="video_chat_ios_swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cqm-nC-P46"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sbh-yH-4Y6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g8l-S3-ca0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6G-ZN-a4B">
+                                <rect key="frame" x="161.5" y="281.5" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter room name here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLA-Dy-2uL">
+                                <rect key="frame" x="115.5" y="318.5" width="183" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2y-Oj-NUP">
+                                <rect key="frame" x="157.5" y="400.5" width="99" height="41"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Enter Room">
+                                    <backgroundConfiguration key="background" cornerRadius="20">
+                                        <color key="backgroundColor" red="0.63352678230000004" green="1" blue="0.50075411309999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                    <directionalEdgeInsets key="contentInsets" top="12" leading="12" bottom="12" trailing="12"/>
+                                    <color key="baseForegroundColor" systemColor="tintColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="MWC-m7-onn" kind="show" identifier="roomViewControllerSegue" id="vQT-So-L6L"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Q2y-Oj-NUP" firstAttribute="top" secondItem="DLA-Dy-2uL" secondAttribute="bottom" constant="48" id="Gj1-Tc-xo3"/>
+                            <constraint firstItem="Q2y-Oj-NUP" firstAttribute="centerX" secondItem="g8l-S3-ca0" secondAttribute="centerX" id="dXZ-vf-krB"/>
+                            <constraint firstItem="Q2y-Oj-NUP" firstAttribute="centerY" secondItem="g8l-S3-ca0" secondAttribute="centerY" id="hyG-G2-0Pu"/>
+                            <constraint firstItem="T6G-ZN-a4B" firstAttribute="centerX" secondItem="g8l-S3-ca0" secondAttribute="centerX" id="j6V-uU-WJx"/>
+                            <constraint firstItem="DLA-Dy-2uL" firstAttribute="centerX" secondItem="g8l-S3-ca0" secondAttribute="centerX" id="xO2-LM-AvR"/>
+                            <constraint firstItem="DLA-Dy-2uL" firstAttribute="top" secondItem="T6G-ZN-a4B" secondAttribute="bottom" constant="16" id="xSa-Mp-XcO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="E7N-bl-As5"/>
+                    <connections>
+                        <outlet property="roomNameTextField" destination="DLA-Dy-2uL" id="0Q0-Kg-s6c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GcL-qA-z4j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-539.13043478260875" y="1496.6517857142856"/>
+        </scene>
+        <!--Room View Controller-->
+        <scene sceneID="IxA-V4-tQk">
+            <objects>
+                <viewController id="MWC-m7-onn" customClass="RoomViewController" customModule="video_chat_ios_swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Guf-EX-v5T"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZWd-f4-zzj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TCb-rK-Ate">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="XLH-du-Qg6" userLabel="ControlButtonsStackView">
+                                <rect key="frame" x="0.0" y="694.5" width="414" height="147.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teA-dC-1Ya" userLabel="SwitchCameraButton">
+                                        <rect key="frame" x="24" y="24" width="70.5" height="65.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="icon-switch-camera">
+                                            <backgroundConfiguration key="background" cornerRadius="30">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </backgroundConfiguration>
+                                            <directionalEdgeInsets key="contentInsets" top="16" leading="10" bottom="16" trailing="10"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="switchCameraButtonTapped:" destination="MWC-m7-onn" eventType="touchUpInside" id="mqg-pb-10X"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJ6-d2-FpU" userLabel="VideoButton">
+                                        <rect key="frame" x="122.5" y="24" width="70.5" height="65.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="icon-video">
+                                            <backgroundConfiguration key="background" cornerRadius="30">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </backgroundConfiguration>
+                                            <directionalEdgeInsets key="contentInsets" top="16" leading="10" bottom="16" trailing="10"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="videoButtonTapped:" destination="MWC-m7-onn" eventType="touchUpInside" id="w7V-Do-1Ha"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnx-uX-Ae8" userLabel="MicButton">
+                                        <rect key="frame" x="221" y="24" width="70.5" height="65.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="icon-unmute">
+                                            <backgroundConfiguration key="background" cornerRadius="30">
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </backgroundConfiguration>
+                                            <directionalEdgeInsets key="contentInsets" top="16" leading="10" bottom="16" trailing="10"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="muteButtonTapped:" destination="MWC-m7-onn" eventType="touchUpInside" id="SPt-jj-4g6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Guf-I4-bns" userLabel="EndCallButton">
+                                        <rect key="frame" x="319.5" y="24" width="70.5" height="65.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="icon-end-call">
+                                            <backgroundConfiguration key="background" cornerRadius="30">
+                                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                            </backgroundConfiguration>
+                                            <directionalEdgeInsets key="contentInsets" top="16" leading="10" bottom="16" trailing="10"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="sessiondisconnecterrorendCallButtonTapped:" destination="MWC-m7-onn" eventType="touchUpInside" id="G12-Aj-xXO"/>
+                                            <segue destination="4zK-YI-9jg" kind="show" identifier="enterRoomViewControllerSegue" id="KDV-Cg-eSW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="XJ6-d2-FpU" firstAttribute="width" secondItem="teA-dC-1Ya" secondAttribute="width" id="HhR-Z5-fhg"/>
+                                    <constraint firstItem="XJ6-d2-FpU" firstAttribute="height" secondItem="teA-dC-1Ya" secondAttribute="height" id="Kmz-a9-q0C"/>
+                                    <constraint firstItem="Guf-I4-bns" firstAttribute="width" secondItem="teA-dC-1Ya" secondAttribute="width" id="WZE-bQ-6aW"/>
+                                    <constraint firstItem="Guf-I4-bns" firstAttribute="height" secondItem="teA-dC-1Ya" secondAttribute="height" id="aoA-0V-Jqd"/>
+                                    <constraint firstItem="jnx-uX-Ae8" firstAttribute="height" secondItem="teA-dC-1Ya" secondAttribute="height" id="ibO-81-bYf"/>
+                                    <constraint firstItem="jnx-uX-Ae8" firstAttribute="width" secondItem="teA-dC-1Ya" secondAttribute="width" id="jWC-Ms-EKQ"/>
+                                </constraints>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="24" leading="24" bottom="24" trailing="24"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XLH-du-Qg6" secondAttribute="trailing" id="GuK-vl-Jz5"/>
+                            <constraint firstItem="XLH-du-Qg6" firstAttribute="leading" secondItem="TCb-rK-Ate" secondAttribute="leading" id="f7C-OG-evW"/>
+                            <constraint firstAttribute="bottom" secondItem="XLH-du-Qg6" secondAttribute="bottom" id="nGj-Jz-2Jc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sR7-VR-buv"/>
+                    <connections>
+                        <outlet property="controlButtonsStack" destination="XLH-du-Qg6" id="LqE-0m-Cir"/>
+                        <outlet property="muteMicButton" destination="jnx-uX-Ae8" id="dbU-u5-eyN"/>
+                        <outlet property="videoButton" destination="XJ6-d2-FpU" id="7cU-n8-E4b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a2t-wN-3x9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="786" y="1497"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon-end-call" width="32" height="32"/>
+        <image name="icon-switch-camera" width="33.5" height="33.5"/>
+        <image name="icon-unmute" width="32" height="32"/>
+        <image name="icon-video" width="32" height="32"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
