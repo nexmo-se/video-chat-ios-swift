@@ -79,7 +79,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="XLH-du-Qg6" userLabel="ControlButtonsStackView">
                                 <rect key="frame" x="0.0" y="694.5" width="414" height="147.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teA-dC-1Ya" userLabel="SwitchCameraButton">
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teA-dC-1Ya" userLabel="SwitchCameraButton">
                                         <rect key="frame" x="24" y="24" width="70.5" height="65.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="icon-switch-camera">
@@ -145,7 +145,7 @@
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="24" leading="24" bottom="24" trailing="24"/>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="XLH-du-Qg6" secondAttribute="trailing" id="GuK-vl-Jz5"/>
                             <constraint firstItem="XLH-du-Qg6" firstAttribute="leading" secondItem="TCb-rK-Ate" secondAttribute="leading" id="f7C-OG-evW"/>
@@ -161,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2t-wN-3x9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="786" y="1497"/>
+            <point key="canvasLocation" x="785.50724637681162" y="1496.6517857142856"/>
         </scene>
     </scenes>
     <resources>

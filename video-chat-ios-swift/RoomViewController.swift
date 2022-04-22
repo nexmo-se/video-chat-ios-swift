@@ -13,12 +13,15 @@ import OpenTok
 // *** Fill in the backendURL for session creation, backend folder: ./backend ***
 let backendURL = ""
 
-let publisherHeight = 180
-let publisherWidth = 120
+let smallFrameHeight: CGFloat = 180;
+let smallFrameWidth: CGFloat = 120;
 
-let screenSize: CGRect = UIScreen.main.bounds
+let screenSize: CGRect = UIScreen.main.bounds;
 let screenWidth = screenSize.width;
-let screenHeight = screenSize.height
+let screenHeight = screenSize.height;
+
+let publisherTag = 1;
+let subscriberTag = 2;
 
 struct Session:Decodable {
     var apiKey:String = ""
@@ -42,6 +45,16 @@ class RoomViewController: UIViewController {
     
     var currentSession = Session();
     
+    lazy var bigFrame = CGSize(width: screenWidth, height: screenHeight);
+    lazy var smallFrame = CGSize(width: smallFrameWidth, height: smallFrameHeight);
+    lazy var initialSmallFramePosition = CGPoint(x:screenWidth - smallFrameWidth, y:screenHeight - smallFrameHeight - controlButtonsStack.frame.height)
+    
+    var bigFramePosition = CGPoint(x:0, y:0);
+    
+    lazy var tapGesture = UITapGestureRecognizer(target: self, action:  #selector(self.smallFrameClickAction))
+    lazy var panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.smallFramePanAction))
+
+    
     var roomName = String();
     lazy var session: OTSession = {
         return OTSession(apiKey: currentSession.apiKey, sessionId: currentSession.sessionId, delegate: self)!
@@ -56,10 +69,11 @@ class RoomViewController: UIViewController {
     
     var subscriber: OTSubscriber?
     var error: OTError?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        controlButtonsStack.backgroundColor = .gray.withAlphaComponent(0.6);
+        controlButtonsStack.layer.zPosition = 2;
          generateSession() {result in
             switch result {
             case .failure(let error):
@@ -95,6 +109,102 @@ class RoomViewController: UIViewController {
         task.resume()
     }
 
+    /* Toggle action button only if user tap on big screen*/
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        if ((touch.view?.frame.size) == smallFrame) {
+            return;
+        }
+        if (self.controlButtonsStack.frame.origin.y >= screenHeight) {
+            UIView.animate(withDuration: 0.5, animations: {() -> Void in
+                self.controlButtonsStack.transform = CGAffineTransform(translationX: 0, y: 0);
+            })
+        }
+        else {
+            UIView.animate(withDuration: 0.5, animations: {() -> Void in
+                self.controlButtonsStack.transform = CGAffineTransform(translationX: 0, y:self.controlButtonsStack.frame.height + 100);
+            })
+        }
+    }
+
+    /* Swap pubsliher and subscriber screen size*/
+    @objc func smallFrameClickAction(sender : UITapGestureRecognizer) {
+        if (sender.view!.tag == publisherTag) {
+            let currentSmallScreenPosition = publisher.view?.frame.origin;
+            if let pubView = publisher.view {
+                pubView.frame.size = bigFrame;
+                pubView.frame.origin = bigFramePosition
+                view.sendSubviewToBack(pubView);
+
+                pubView.removeGestureRecognizer(tapGesture)
+                pubView.removeGestureRecognizer(panGesture)
+
+            }
+            
+            if let subsView = subscriber?.view {
+                subsView.frame.size = smallFrame;
+                subsView.frame.origin = currentSmallScreenPosition!;
+                view.bringSubviewToFront(subsView);
+                subsView.addGestureRecognizer(tapGesture)
+                subsView.addGestureRecognizer(panGesture)
+            }
+        }
+        else if (sender.view!.tag == subscriberTag){
+            let currentSmallScreenPosition = subscriber?.view?.frame.origin;
+            
+            if let pubView = publisher.view {
+                pubView.frame.size = smallFrame;
+                pubView.frame.origin = currentSmallScreenPosition!;
+                view.bringSubviewToFront(pubView);
+                pubView.addGestureRecognizer(tapGesture)
+                pubView.addGestureRecognizer(panGesture)
+            }
+            
+            if let subsView = subscriber?.view {
+                subsView.frame.size = bigFrame;
+                subsView.frame.origin = bigFramePosition
+
+                view.sendSubviewToBack(subsView);
+                subsView.removeGestureRecognizer(tapGesture)
+                subsView.removeGestureRecognizer(panGesture)
+            }
+        }
+    }
+
+    @objc func smallFramePanAction(sender : UIPanGestureRecognizer) {
+
+        if (sender.state == .began || sender.state == .changed) {
+            let translation = sender.translation(in: sender.view)
+            let changedX = (sender.view?.center.x)! + translation.x
+            let changedY = (sender.view?.center.y)! + translation.y
+            sender.view?.center = CGPoint(x:changedX, y:changedY)
+        }
+        if (sender.state == .ended) {
+            let translation = sender.translation(in: sender.view)
+            let changedX = (sender.view?.center.x)! + translation.x
+            let changedY = (sender.view?.center.y)! + translation.y
+            
+            var xPosition = screenWidth - smallFrameWidth/2;
+            var yPosition = changedY;
+            
+            if (changedX < screenWidth/2) {
+                xPosition = smallFrameWidth/2;
+            }
+            if (changedY > (screenHeight - (smallFrameHeight)/2)) {
+                yPosition = screenHeight - (smallFrameHeight)/2
+            }
+            if (changedY < (smallFrameHeight)/2) {
+                yPosition = (smallFrameHeight)/2;
+            }
+ 
+            UIView.animate(withDuration: 0.15, animations: {() -> Void in
+                sender.view?.center = CGPoint(x:xPosition, y:yPosition)
+            })
+            
+        }
+        sender.setTranslation(CGPoint.zero, in: sender.view)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let enterRoomViewController = segue.destination as! EnterRoomViewController
         enterRoomViewController.modalPresentationStyle = .fullScreen
@@ -124,14 +234,20 @@ class RoomViewController: UIViewController {
         
         session.publish(publisher,error: &error)
         
-        let xPosition = screenWidth - CGFloat(publisherWidth);
-        let yPosition = screenHeight - CGFloat(publisherHeight) - controlButtonsStack.frame.size.height
-        
         if let pubView = publisher.view {
-            pubView.frame = CGRect(x: Int(xPosition), y: Int(yPosition), width: publisherWidth, height: publisherHeight)
-            pubView.layer.zPosition = 1;
+            pubView.frame.size = smallFrame;
+            pubView.frame.origin = initialSmallFramePosition;
+
             view.addSubview(pubView)
+            pubView.addGestureRecognizer(tapGesture);
+            pubView.addGestureRecognizer(panGesture);
+            pubView.tag = publisherTag;
         }
+        // hide control buttons
+        UIView.animate(withDuration: 0.5, animations: {() -> Void in
+            self.controlButtonsStack.transform = CGAffineTransform(translationX: 0, y: self.controlButtonsStack.frame.height + 100);
+
+        })
     }
     
     /**
@@ -229,7 +345,6 @@ class RoomViewController: UIViewController {
         }
     }
     
-    
 }
 
 // MARK: - OTSession delegate callbacks
@@ -285,8 +400,21 @@ extension RoomViewController: OTPublisherDelegate {
 extension RoomViewController: OTSubscriberDelegate {
     func subscriberDidConnect(toStream subscriberKit: OTSubscriberKit) {
         if let subsView = subscriber?.view {
-            subsView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight - controlButtonsStack.frame.size.height)
-            view.addSubview(subsView)
+            if (publisher.view?.frame.size == bigFrame) {
+                subsView.frame.size = smallFrame;
+                subsView.frame.origin = initialSmallFramePosition;
+                subsView.addGestureRecognizer(tapGesture);
+                subsView.addGestureRecognizer(panGesture);
+                view.addSubview(subsView)
+            }
+            else {
+                subsView.frame.size = bigFrame;
+                subsView.frame.origin = bigFramePosition;
+                view.addSubview(subsView)
+                view.sendSubviewToBack(subsView);
+            }
+ 
+            subsView.tag = subscriberTag;
         }
     }
     
