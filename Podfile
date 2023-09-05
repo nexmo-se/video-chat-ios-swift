@@ -1,8 +1,8 @@
-platform :ios, '12.0'
+platform :ios, '13.0'
 use_frameworks!
 
 require_relative './OpenTokSDKVersion'
 
 target 'video-chat-ios-swift' do
-  pod 'OpenTok', OpenTokSDKVersion
+  pod 'OTXCFramework', '2.26.0'
 end

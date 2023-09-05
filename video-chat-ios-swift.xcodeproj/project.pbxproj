@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3CCEF378A80D48BACE9DA16D /* Pods_video_chat_ios_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F4095BFA84E50E540030CE /* Pods_video_chat_ios_swift.framework */; };
+		9554FFD588CCE0C7501C6F4F /* Pods_video_chat_ios_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C4C50F7FBFD0D1EF5290E8D /* Pods_video_chat_ios_swift.framework */; };
 		EA9C18D227C8AA7A005615E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9C18D127C8AA7A005615E8 /* AppDelegate.swift */; };
 		EA9C18D627C8AA7A005615E8 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9C18D527C8AA7A005615E8 /* RoomViewController.swift */; };
 		EA9C18D927C8AA7A005615E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA9C18D727C8AA7A005615E8 /* Main.storyboard */; };
@@ -17,8 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04F4095BFA84E50E540030CE /* Pods_video_chat_ios_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_video_chat_ios_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D122AC0851E05C991ABB4C2A /* Pods-video-chat-ios-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-video-chat-ios-swift.release.xcconfig"; path = "Target Support Files/Pods-video-chat-ios-swift/Pods-video-chat-ios-swift.release.xcconfig"; sourceTree = "<group>"; };
+		33F72DF3F303A5DC619F51C4 /* Pods-video-chat-ios-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-video-chat-ios-swift.debug.xcconfig"; path = "Target Support Files/Pods-video-chat-ios-swift/Pods-video-chat-ios-swift.debug.xcconfig"; sourceTree = "<group>"; };
+		8C4C50F7FBFD0D1EF5290E8D /* Pods_video_chat_ios_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_video_chat_ios_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9AE50D5CF426AC17405E81A /* Pods-video-chat-ios-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-video-chat-ios-swift.release.xcconfig"; path = "Target Support Files/Pods-video-chat-ios-swift/Pods-video-chat-ios-swift.release.xcconfig"; sourceTree = "<group>"; };
 		EA9C18CE27C8AA7A005615E8 /* video-chat-ios-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "video-chat-ios-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA9C18D127C8AA7A005615E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA9C18D527C8AA7A005615E8 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
@@ -27,7 +28,6 @@
 		EA9C18DD27C8AA7B005615E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA9C18DF27C8AA7B005615E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA9C18E527C8AD5C005615E8 /* EnterRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterRoomViewController.swift; sourceTree = "<group>"; };
-		FF24E939406BC656BB1D3A23 /* Pods-video-chat-ios-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-video-chat-ios-swift.debug.xcconfig"; path = "Target Support Files/Pods-video-chat-ios-swift/Pods-video-chat-ios-swift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CCEF378A80D48BACE9DA16D /* Pods_video_chat_ios_swift.framework in Frameworks */,
+				9554FFD588CCE0C7501C6F4F /* Pods_video_chat_ios_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,16 +45,16 @@
 		4A2B15366B5693F35DDB78AA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FF24E939406BC656BB1D3A23 /* Pods-video-chat-ios-swift.debug.xcconfig */,
-				D122AC0851E05C991ABB4C2A /* Pods-video-chat-ios-swift.release.xcconfig */,
+				33F72DF3F303A5DC619F51C4 /* Pods-video-chat-ios-swift.debug.xcconfig */,
+				A9AE50D5CF426AC17405E81A /* Pods-video-chat-ios-swift.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		6975AC4D49FE4D6448976AA5 /* Frameworks */ = {
+		99EEF1299D4CD9DF7F7792AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				04F4095BFA84E50E540030CE /* Pods_video_chat_ios_swift.framework */,
+				8C4C50F7FBFD0D1EF5290E8D /* Pods_video_chat_ios_swift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -65,7 +65,7 @@
 				EA9C18D027C8AA7A005615E8 /* video-chat-ios-swift */,
 				EA9C18CF27C8AA7A005615E8 /* Products */,
 				4A2B15366B5693F35DDB78AA /* Pods */,
-				6975AC4D49FE4D6448976AA5 /* Frameworks */,
+				99EEF1299D4CD9DF7F7792AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,10 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA9C18E227C8AA7B005615E8 /* Build configuration list for PBXNativeTarget "video-chat-ios-swift" */;
 			buildPhases = (
-				B39D09F8D36A592F980DE7E0 /* [CP] Check Pods Manifest.lock */,
+				BCFD071D8062CDB8A3771E53 /* [CP] Check Pods Manifest.lock */,
 				EA9C18CA27C8AA7A005615E8 /* Sources */,
 				EA9C18CB27C8AA7A005615E8 /* Frameworks */,
 				EA9C18CC27C8AA7A005615E8 /* Resources */,
+				B3FF59378A841CB43CD84DE2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,7 +160,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B39D09F8D36A592F980DE7E0 /* [CP] Check Pods Manifest.lock */ = {
+		B3FF59378A841CB43CD84DE2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-video-chat-ios-swift/Pods-video-chat-ios-swift-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-video-chat-ios-swift/Pods-video-chat-ios-swift-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-video-chat-ios-swift/Pods-video-chat-ios-swift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCFD071D8062CDB8A3771E53 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -334,13 +352,13 @@
 		};
 		EA9C18E327C8AA7B005615E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF24E939406BC656BB1D3A23 /* Pods-video-chat-ios-swift.debug.xcconfig */;
+			baseConfigurationReference = 33F72DF3F303A5DC619F51C4 /* Pods-video-chat-ios-swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 76P6DG298W;
+				DEVELOPMENT_TEAM = PR6C39UQ38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "video-chat-ios-swift/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -367,13 +385,13 @@
 		};
 		EA9C18E427C8AA7B005615E8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D122AC0851E05C991ABB4C2A /* Pods-video-chat-ios-swift.release.xcconfig */;
+			baseConfigurationReference = A9AE50D5CF426AC17405E81A /* Pods-video-chat-ios-swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 76P6DG298W;
+				DEVELOPMENT_TEAM = PR6C39UQ38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "video-chat-ios-swift/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";

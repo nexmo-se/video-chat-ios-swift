@@ -37,11 +37,15 @@ enum SessionError:Error {
 
 class RoomViewController: UIViewController {
     
+    @IBOutlet weak var liveCaptionButton: UIButton!
+    
     @IBOutlet weak var muteMicButton: UIButton!
     
     @IBOutlet weak var videoButton: UIButton!
     
     @IBOutlet weak var controlButtonsStack: UIStackView!
+    
+    @IBOutlet weak var captionLabel: UILabel!
     
     var currentSession = Session();
     
@@ -118,11 +122,13 @@ class RoomViewController: UIViewController {
         if (self.controlButtonsStack.frame.origin.y >= screenHeight) {
             UIView.animate(withDuration: 0.5, animations: {() -> Void in
                 self.controlButtonsStack.transform = CGAffineTransform(translationX: 0, y: 0);
+                self.captionLabel.transform = CGAffineTransform(translationX: 0, y: -16);
             })
         }
         else {
             UIView.animate(withDuration: 0.5, animations: {() -> Void in
                 self.controlButtonsStack.transform = CGAffineTransform(translationX: 0, y:self.controlButtonsStack.frame.height + 100);
+                self.captionLabel.transform = CGAffineTransform(translationX: 0, y: self.controlButtonsStack.frame.height - 16);
             })
         }
     }
@@ -232,6 +238,8 @@ class RoomViewController: UIViewController {
             processError(error)
         }
         
+        publisher.publishCaptions = true
+        
         session.publish(publisher,error: &error)
         
         if let pubView = publisher.view {
@@ -261,6 +269,8 @@ class RoomViewController: UIViewController {
             processError(error)
         }
         subscriber = OTSubscriber(stream: stream, delegate: self)
+        subscriber?.captionsDelegate = self
+        subscriber?.subscribeToCaptions = false
         
         session.subscribe(subscriber!, error: &error)
     }
@@ -283,9 +293,37 @@ class RoomViewController: UIViewController {
             }
         }
     }
-
+    
+    
     @IBAction func sessiondisconnecterrorendCallButtonTapped(_ sender: Any) {
         session.disconnect(&error)
+    }
+    
+    @IBAction func LiveCaptionButtonTapped(_ sender: UIButton) {
+        if let subscriber = subscriber {
+            // reset caption
+            captionLabel.text = "loading caption..."
+
+            let newSubscribeState = !subscriber.subscribeToCaptions
+            
+            subscriber.subscribeToCaptions = newSubscribeState
+            
+            captionLabel.isHidden = !newSubscribeState
+
+            let buttonConfig = UIImage.SymbolConfiguration(pointSize: 22)
+            let buttonImage = UIImage(systemName: "captions.bubble", withConfiguration: buttonConfig)!
+            liveCaptionButton.setImage(buttonImage, for: .normal)
+            
+            if #available(iOS 15.0, *) {
+                liveCaptionButton.configuration = .filled();
+                liveCaptionButton.clipsToBounds = true;
+                liveCaptionButton.layer.cornerRadius = 28;
+                liveCaptionButton.configuration?.baseBackgroundColor = !newSubscribeState ? UIColor.systemGray2 : UIColor.systemGreen
+            } else {
+                // Fallback on earlier versions
+                liveCaptionButton.backgroundColor = !newSubscribeState ? UIColor.systemGray2 : UIColor.systemGreen
+            }
+        }
     }
     
     @IBAction func switchCameraButtonTapped(_ sender: Any) {
@@ -397,7 +435,7 @@ extension RoomViewController: OTPublisherDelegate {
 }
 
 // MARK: - OTSubscriber delegate callbacks
-extension RoomViewController: OTSubscriberDelegate {
+extension RoomViewController: OTSubscriberDelegate, OTSubscriberKitCaptionsDelegate {
     func subscriberDidConnect(toStream subscriberKit: OTSubscriberKit) {
         if let subsView = subscriber?.view {
             if (publisher.view?.frame.size == bigFrame) {
@@ -421,4 +459,9 @@ extension RoomViewController: OTSubscriberDelegate {
     func subscriber(_ subscriber: OTSubscriberKit, didFailWithError error: OTError) {
         print("Subscriber failed: \(error.localizedDescription)")
     }
+    
+    func subscriber(_ subscriber: OTSubscriberKit, caption text: String, isFinal: Bool) {
+        captionLabel.text = text
+    }
+  
 }

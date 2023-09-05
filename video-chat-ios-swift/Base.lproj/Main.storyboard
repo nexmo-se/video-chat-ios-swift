@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4zK-YI-9jg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4zK-YI-9jg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,22 +18,22 @@
                         <viewControllerLayoutGuide type="bottom" id="Sbh-yH-4Y6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="g8l-S3-ca0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6G-ZN-a4B">
-                                <rect key="frame" x="161.5" y="281.5" width="91" height="21"/>
+                                <rect key="frame" x="161.5" y="277.5" width="91" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter room name here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLA-Dy-2uL">
-                                <rect key="frame" x="115.5" y="318.5" width="183" height="34"/>
+                                <rect key="frame" x="115.5" y="314.5" width="183" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2y-Oj-NUP">
-                                <rect key="frame" x="157.5" y="400.5" width="99" height="41"/>
+                                <rect key="frame" x="150.5" y="396.5" width="113" height="45"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Enter Room">
                                     <backgroundConfiguration key="background" cornerRadius="20">
@@ -73,14 +75,30 @@
                         <viewControllerLayoutGuide type="bottom" id="ZWd-f4-zzj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TCb-rK-Ate">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="XLH-du-Qg6" userLabel="ControlButtonsStackView">
-                                <rect key="frame" x="0.0" y="694.5" width="414" height="147.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XLH-du-Qg6" userLabel="ControlButtonsStackView">
+                                <rect key="frame" x="0.0" y="724.5" width="414" height="113.5"/>
                                 <subviews>
-                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teA-dC-1Ya" userLabel="SwitchCameraButton">
-                                        <rect key="frame" x="24" y="24" width="70.5" height="65.5"/>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teA-dC-1Ya" userLabel="LiveCaptionButton">
+                                        <rect key="frame" x="24" y="24" width="60.5" height="65.5"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" imagePadding="0.0">
+                                            <imageReference key="image" image="captions.bubble" catalog="system" symbolScale="large" variableValue="0.60000000000000009"/>
+                                            <backgroundConfiguration key="background" cornerRadius="30">
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                            </backgroundConfiguration>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="22"/>
+                                            <directionalEdgeInsets key="contentInsets" top="16" leading="10" bottom="16" trailing="10"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="LiveCaptionButtonTapped:" destination="MWC-m7-onn" eventType="touchUpInside" id="0go-ua-9FU"/>
+                                        </connections>
+                                    </button>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fv0-IY-MGj" userLabel="SwitchCameraButton">
+                                        <rect key="frame" x="100.5" y="24" width="60.5" height="65.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="icon-switch-camera">
                                             <backgroundConfiguration key="background" cornerRadius="30">
@@ -89,11 +107,11 @@
                                             <directionalEdgeInsets key="contentInsets" top="16" leading="10" bottom="16" trailing="10"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="switchCameraButtonTapped:" destination="MWC-m7-onn" eventType="touchUpInside" id="mqg-pb-10X"/>
+                                            <action selector="switchCameraButtonTapped:" destination="MWC-m7-onn" eventType="touchUpInside" id="fE0-Zs-Gx5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJ6-d2-FpU" userLabel="VideoButton">
-                                        <rect key="frame" x="122.5" y="24" width="70.5" height="65.5"/>
+                                        <rect key="frame" x="177" y="24" width="60" height="65.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="icon-video">
                                             <backgroundConfiguration key="background" cornerRadius="30">
@@ -106,7 +124,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnx-uX-Ae8" userLabel="MicButton">
-                                        <rect key="frame" x="221" y="24" width="70.5" height="65.5"/>
+                                        <rect key="frame" x="253" y="24" width="60.5" height="65.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="icon-unmute">
                                             <backgroundConfiguration key="background" cornerRadius="30">
@@ -119,7 +137,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Guf-I4-bns" userLabel="EndCallButton">
-                                        <rect key="frame" x="319.5" y="24" width="70.5" height="65.5"/>
+                                        <rect key="frame" x="329.5" y="24" width="60.5" height="65.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="icon-end-call">
                                             <backgroundConfiguration key="background" cornerRadius="30">
@@ -136,25 +154,34 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="XJ6-d2-FpU" firstAttribute="width" secondItem="teA-dC-1Ya" secondAttribute="width" id="HhR-Z5-fhg"/>
-                                    <constraint firstItem="XJ6-d2-FpU" firstAttribute="height" secondItem="teA-dC-1Ya" secondAttribute="height" id="Kmz-a9-q0C"/>
                                     <constraint firstItem="Guf-I4-bns" firstAttribute="width" secondItem="teA-dC-1Ya" secondAttribute="width" id="WZE-bQ-6aW"/>
-                                    <constraint firstItem="Guf-I4-bns" firstAttribute="height" secondItem="teA-dC-1Ya" secondAttribute="height" id="aoA-0V-Jqd"/>
-                                    <constraint firstItem="jnx-uX-Ae8" firstAttribute="height" secondItem="teA-dC-1Ya" secondAttribute="height" id="ibO-81-bYf"/>
                                     <constraint firstItem="jnx-uX-Ae8" firstAttribute="width" secondItem="teA-dC-1Ya" secondAttribute="width" id="jWC-Ms-EKQ"/>
                                 </constraints>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="24" leading="24" bottom="24" trailing="24"/>
                             </stackView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDH-yd-LSH" userLabel="Captions">
+                                <rect key="frame" x="16" y="708.5" width="382" height="0.0"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nDH-yd-LSH" secondAttribute="trailing" constant="16" id="BNx-1R-kOX"/>
+                            <constraint firstItem="XLH-du-Qg6" firstAttribute="top" secondItem="nDH-yd-LSH" secondAttribute="bottom" constant="16" id="Bd2-Pd-2fy"/>
                             <constraint firstAttribute="trailing" secondItem="XLH-du-Qg6" secondAttribute="trailing" id="GuK-vl-Jz5"/>
                             <constraint firstItem="XLH-du-Qg6" firstAttribute="leading" secondItem="TCb-rK-Ate" secondAttribute="leading" id="f7C-OG-evW"/>
+                            <constraint firstItem="nDH-yd-LSH" firstAttribute="leading" secondItem="TCb-rK-Ate" secondAttribute="leading" constant="16" id="hcg-Rx-dnx"/>
                             <constraint firstAttribute="bottom" secondItem="XLH-du-Qg6" secondAttribute="bottom" id="nGj-Jz-2Jc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sR7-VR-buv"/>
                     <connections>
+                        <outlet property="captionLabel" destination="nDH-yd-LSH" id="Zeg-L0-mLy"/>
                         <outlet property="controlButtonsStack" destination="XLH-du-Qg6" id="LqE-0m-Cir"/>
+                        <outlet property="liveCaptionButton" destination="teA-dC-1Ya" id="ZpF-qw-h4T"/>
                         <outlet property="muteMicButton" destination="jnx-uX-Ae8" id="dbU-u5-eyN"/>
                         <outlet property="videoButton" destination="XJ6-d2-FpU" id="7cU-n8-E4b"/>
                     </connections>
@@ -165,12 +192,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="captions.bubble" catalog="system" width="128" height="110"/>
         <image name="icon-end-call" width="32" height="32"/>
         <image name="icon-switch-camera" width="33.5" height="33.5"/>
         <image name="icon-unmute" width="32" height="32"/>
         <image name="icon-video" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
